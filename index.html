@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>EduConnect — Nền Tảng Kết Nối Gia Sư & Học Sinh 1:1 Chuẩn KGU</title>
+  <meta name="description" content="EduConnect (EduTeach) — Nền tảng EdTech kết nối học sinh và gia sư hàng đầu, phòng học trực tuyến WebRTC 1:1, trợ lý AI thông minh, quản lý lịch rảnh và thù lao minh bạch. Dự án Cuộc thi Sáng tạo kỹ thuật sinh viên KGU 2026-2027.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background Animated Mesh Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container">
+      <a href="#" class="brand-logo">
+        <div class="logo-box">
+          <img src="assets/icon.png" alt="EduConnect Logo" class="brand-icon">
+          <div class="logo-glow"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Edu<span class="accent-text">Connect</span></span>
+          <span class="brand-badge">KGU 2026</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Tính năng</a></li>
+        <li><a href="#solutions" class="nav-link">Giải pháp</a></li>
+        <li><a href="#tutors" class="nav-link">Gia sư tiêu biểu</a></li>
+        <li><a href="#calculator" class="nav-link">Gói học & Thu nhập</a></li>
+        <li><a href="#reviews" class="nav-link">Đánh giá</a></li>
+        <li><a href="#faq" class="nav-link">Hỏi đáp</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#download" class="btn btn-secondary nav-btn-sub">Tải App</a>
+        <a href="#contact" class="btn btn-primary nav-btn-main pulse-btn">
+          <span>Đăng ký ngay</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <div class="drawer-header">
+        <div class="brand-text">
+          <span class="brand-name">Edu<span class="accent-text">Connect</span></span>
+        </div>
+        <button class="drawer-close" id="drawer-close">&times;</button>
+      </div>
+      <ul class="drawer-links">
+        <li><a href="#features" class="drawer-link">Tính năng nổi bật</a></li>
+        <li><a href="#solutions" class="drawer-link">Mô hình giải pháp</a></li>
+        <li><a href="#tutors" class="drawer-link">Đội ngũ Gia sư</a></li>
+        <li><a href="#calculator" class="drawer-link">Dự toán gói học</a></li>
+        <li><a href="#reviews" class="drawer-link">Cảm nhận học viên</a></li>
+        <li><a href="#faq" class="drawer-link">Câu hỏi thường gặp</a></li>
+      </ul>
+      <div class="drawer-actions">
+        <a href="#download" class="btn btn-primary btn-block">Tải Ứng Dụng Ngay</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Top Announcement Ticker -->
+    <div class="competition-banner">
+      <div class="ticker-track">
+        <div class="ticker-content">
+          <span>🏆 DỰ ÁN DỰ THI CUỘC THI SÁNG TẠO KỸ THUẬT SINH VIÊN KGU LẦN THỨ I (2026 – 2027)</span>
+          <span class="ticker-dot">•</span>
+          <span>✨ CHỦ ĐỀ: "TUỔI TRẺ KGU SÁNG TẠO – KẾT NỐI TRI THỨC, KIẾN TẠO TƯƠNG LAI"</span>
+          <span class="ticker-dot">•</span>
+          <span>🚀 LĨNH VỰC: CÔNG NGHỆ THÔNG TIN – GIÁO DỤC VÀ ĐÀO TẠO</span>
+          <span class="ticker-dot">•</span>
+          <span>⚡ PHÒNG HỌC WEBRTC TRỰC TUYẾN 1:1 SIÊU TỐC</span>
+          <span class="ticker-dot">•</span>
+          <span>🤖 TÍCH HỢP TRỢ LÝ AI HỌC TẬP 24/7</span>
+          <span class="ticker-dot">•</span>
+        </div>
+        <div class="ticker-content" aria-hidden="true">
+          <span>🏆 DỰ ÁN DỰ THI CUỘC THI SÁNG TẠO KỸ THUẬT SINH VIÊN KGU LẦN THỨ I (2026 – 2027)</span>
+          <span class="ticker-dot">•</span>
+          <span>✨ CHỦ ĐỀ: "TUỔI TRẺ KGU SÁNG TẠO – KẾT NỐI TRI THỨC, KIẾN TẠO TƯƠNG LAI"</span>
+          <span class="ticker-dot">•</span>
+          <span>🚀 LĨNH VỰC: CÔNG NGHỆ THÔNG TIN – GIÁO DỤC VÀ ĐÀO TẠO</span>
+          <span class="ticker-dot">•</span>
+          <span>⚡ PHÒNG HỌC WEBRTC TRỰC TUYẾN 1:1 SIÊU TỐC</span>
+          <span class="ticker-dot">•</span>
+          <span>🤖 TÍCH HỢP TRỢ LÝ AI HỌC TẬP 24/7</span>
+          <span class="ticker-dot">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill-badge" data-reveal="fade-up">
+            <span class="badge-dot"></span>
+            <span>EdTech Đột Phá Cho Sinh Viên & Học Sinh</span>
+            <span class="badge-arrow">→</span>
+          </div>
+
+          <h1 class="hero-title" data-reveal="fade-up" data-delay="100">
+            Kết Nối <span class="gradient-text animated-gradient">Gia Sư & Học Sinh</span> Dễ Dàng Chỉ Với Một Chạm
+          </h1>
+
+          <p class="hero-desc" data-reveal="fade-up" data-delay="200">
+            <strong>EduConnect</strong> (EduTeach) giải quyết triệt để bài toán tìm gia sư tin cậy, linh hoạt lịch rảnh và minh bạch học phí. Học trực tuyến 1:1 qua <strong>WebRTC HD</strong>, tương tác tài liệu thời gian thực và trợ lý AI đồng hành 24/7.
+          </p>
+
+          <div class="hero-cta-group" data-reveal="fade-up" data-delay="300">
+            <a href="#download" class="btn btn-primary btn-lg glow-on-hover">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+              <span>Tải App Trải Nghiệm</span>
+            </a>
+            <a href="#calculator" class="btn btn-secondary btn-lg">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <span>Xem Bảng Giá & Thu Nhập</span>
+            </a>
+          </div>
+
+          <!-- Social Proof Avatars -->
+          <div class="hero-social-proof" data-reveal="fade-up" data-delay="400">
+            <div class="avatar-group">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Avatar 1">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Avatar 2">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Avatar 3">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="Avatar 4">
+              <div class="avatar-extra">+500</div>
+            </div>
+            <div class="proof-text">
+              <div class="stars">★★★★★ <span class="rating-num">4.9/5</span></div>
+              <span>Hơn <strong>500+</strong> Gia sư & <strong>5,000+</strong> Học sinh tin dùng</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Phone Mockup -->
+        <div class="hero-visual" data-reveal="fade-left" data-delay="200">
+          <div class="visual-3d-wrapper" id="phone-tilt-card">
+            <!-- Floating Holographic Badges -->
+            <div class="floating-badge badge-top-left float-anim-1">
+              <div class="badge-icon-box bg-blue">
+                <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="badge-info">
+                <span class="badge-title">WebRTC 1:1 HD</span>
+                <span class="badge-sub">Video & Chia sẻ tài liệu</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-top-right float-anim-2">
+              <div class="badge-icon-box bg-emerald">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div class="badge-info">
+                <span class="badge-title">Bảo mật TOTP 2FA</span>
+                <span class="badge-sub">Quản trị viên duyệt cọc</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-left float-anim-3">
+              <div class="badge-icon-box bg-purple">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>
+              </div>
+              <div class="badge-info">
+                <span class="badge-title">Trợ Lý AI Edu</span>
+                <span class="badge-sub">Giải đáp bài tập tức thì</span>
+              </div>
+            </div>
+
+            <!-- Phone Frame -->
+            <div class="smartphone-frame">
+              <div class="phone-speaker"></div>
+              <div class="phone-screen">
+                <!-- App Simulation UI -->
+                <div class="app-ui-header">
+                  <div class="app-user-bar">
+                    <div class="app-user-info">
+                      <span class="app-greeting">Xin chào 👋</span>
+                      <strong class="app-username">Nguyễn Minh Quân</strong>
+                    </div>
+                    <div class="app-notif-bell">
+                      <span class="notif-dot"></span>
+                      🔔
+                    </div>
+                  </div>
+
+                  <!-- Search bar -->
+                  <div class="app-search-box">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Tìm gia sư Toán, Lý, Hóa..." readonly value="Tìm gia sư Toán 12...">
+                  </div>
+
+                  <!-- Category Pills -->
+                  <div class="app-categories">
+                    <span class="cat-pill active">Tất cả</span>
+                    <span class="cat-pill">Toán</span>
+                    <span class="cat-pill">Văn</span>
+                    <span class="cat-pill">Anh</span>
+                    <span class="cat-pill">Lý</span>
+                    <span class="cat-pill">Hóa</span>
+                  </div>
+                </div>
+
+                <!-- App Body Content -->
+                <div class="app-ui-body">
+                  <!-- Live WebRTC Mini Widget -->
+                  <div class="app-live-call-card">
+                    <div class="call-header">
+                      <div class="call-pulse-dot"></div>
+                      <span class="call-status">Lớp học đang diễn ra</span>
+                      <span class="call-time">32:15</span>
+                    </div>
+                    <div class="call-tutor">
+                      <div class="tutor-call-avatar">👨‍🏫</div>
+                      <div class="tutor-call-details">
+                        <strong>Thầy Nguyễn Văn An</strong>
+                        <span>Chuyên đề: Hàm số lũy thừa</span>
+                      </div>
+                    </div>
+                    <!-- Audio Equalizer Bars -->
+                    <div class="sound-wave">
+                      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+
+                  <!-- Tutor Card in App -->
+                  <div class="app-tutor-item">
+                    <div class="tutor-item-avatar">
+                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Gia sư">
+                      <span class="verified-tag">✓</span>
+                    </div>
+                    <div class="tutor-item-info">
+                      <div class="tutor-item-header">
+                        <h4>Trần Thị Bích</h4>
+                        <span class="item-rating">⭐ 4.9 (95)</span>
+                      </div>
+                      <p class="item-subject">Anh Văn 10 • IELTS 7.5</p>
+                      <div class="item-footer">
+                        <span class="item-price">120k <small>/buổi</small></span>
+                        <button class="item-book-btn">Đặt lịch</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Schedule Slot Preview -->
+                  <div class="app-schedule-preview">
+                    <div class="schedule-head">
+                      <span>Lịch rảnh thứ 4 (19:30 - 21:00)</span>
+                      <span class="tag-open">Còn trống</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- App Bottom Tabs -->
+                <div class="app-bottom-nav">
+                  <div class="tab-item active"><span>🏠</span><small>Khám phá</small></div>
+                  <div class="tab-item"><span>📅</span><small>Lịch học</small></div>
+                  <div class="tab-item ai-tab"><span class="ai-spark">✨</span><small>AI Chat</small></div>
+                  <div class="tab-item"><span>💬</span><small>Tin nhắn</small></div>
+                  <div class="tab-item"><span>👤</span><small>Tài khoản</small></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Soft Shadow Ambient -->
+            <div class="phone-shadow-ambient"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animated Statistics Bar -->
+    <section class="stats-section">
+      <div class="container stats-grid">
+        <div class="stat-card" data-reveal="zoom-in" data-delay="0">
+          <div class="stat-number-wrapper">
+            <span class="counter" data-target="15000">0</span><span class="stat-plus">+</span>
+          </div>
+          <p class="stat-label">Buổi học trực tuyến hoàn thành</p>
+          <div class="stat-trend">↗ Tăng 145% năm 2026</div>
+        </div>
+
+        <div class="stat-card" data-reveal="zoom-in" data-delay="100">
+          <div class="stat-number-wrapper">
+            <span class="counter" data-target="520">0</span><span class="stat-plus">+</span>
+          </div>
+          <p class="stat-label">Gia sư KGU tuyển chọn gắt gao</p>
+          <div class="stat-trend">✓ Đã kiểm duyệt hồ sơ</div>
+        </div>
+
+        <div class="stat-card" data-reveal="zoom-in" data-delay="200">
+          <div class="stat-number-wrapper">
+            <span class="counter" data-target="99.4" data-decimals="1">0</span><span class="stat-plus">%</span>
+          </div>
+          <p class="stat-label">Tỷ lệ học sinh tiến bộ rõ rệt</p>
+          <div class="stat-trend">⭐ Đánh giá 5 sao</div>
+        </div>
+
+        <div class="stat-card" data-reveal="zoom-in" data-delay="300">
+          <div class="stat-number-wrapper">
+            <span class="counter" data-target="0">0</span><span class="stat-plus">đ</span>
+          </div>
+          <p class="stat-label">Phí đăng ký tài khoản ban đầu</p>
+          <div class="stat-trend">🎁 Miễn phí 100% khi bắt đầu</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Roles / Solutions Tab Section (Kinh Doanh & Giải Pháp) -->
+    <section class="solutions-section" id="solutions">
+      <div class="container">
+        <div class="section-header text-center" data-reveal="fade-up">
+          <span class="sub-heading">Hệ Sinh Thái Toàn Diện</span>
+          <h2 class="section-title">Giải Pháp Hoàn Hảo Cho Từng Vai Trò</h2>
+          <p class="section-desc">EduConnect đồng bộ hóa quy trình học tập, giảng dạy và quản trị trong một nền tảng duy nhất.</p>
+        </div>
+
+        <!-- Interactive Role Switcher Tabs -->
+        <div class="role-tabs-container" data-reveal="fade-up" data-delay="100">
+          <div class="role-tabs">
+            <button class="role-tab active" data-tab="student">
+              <span class="role-icon">🎒</span>
+              <span>Học Sinh & Phụ Huynh</span>
+            </button>
+            <button class="role-tab" data-tab="tutor">
+              <span class="role-icon">👨‍🏫</span>
+              <span>Gia Sư & Giảng Viên</span>
+            </button>
+            <button class="role-tab" data-tab="admin">
+              <span class="role-icon">🛡️</span>
+              <span>Nhà Trường & Quản Trị</span>
+            </button>
+            <div class="tab-slider"></div>
+          </div>
+        </div>
+
+        <!-- Tab Content 1: Học sinh -->
+        <div class="tab-content active" id="tab-student" data-reveal="fade-up">
+          <div class="solution-grid">
+            <div class="solution-info">
+              <div class="badge-role">Dành cho Học sinh & Phụ huynh</div>
+              <h3 class="solution-heading">Tìm đúng gia sư, chủ động học tập, bứt phá kết quả</h3>
+              <ul class="solution-checklist">
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Chọn gia sư linh hoạt theo môn & kinh nghiệm:</strong>
+                    <p>Toán, Văn, Anh, Lý, Hóa, Sinh, Tin học từ lớp 1 đến lớp 12 và ôn thi đại học.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Đặt gói học theo nhu cầu (10 / 20 / 30 buổi):</strong>
+                    <p>Khung giờ gia sư rảnh hiển thị rõ ràng; giờ đã có học sinh khác giữ sẽ tự động khóa mờ.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Lớp học trực tuyến WebRTC 1:1 bảo mật:</strong>
+                    <p>Đàm thoại video HD, chia sẻ màn hình bài tập, gửi file và bảng trắng tương tác tức thì.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Bảo vệ quyền lợi tối đa:</strong>
+                    <p>Thanh toán cọc an toàn, quản trị viên duyệt đơn và xử lý khiếu nại buổi học minh bạch.</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="solution-cta">
+                <a href="#download" class="btn btn-primary">Tìm Gia Sư Ngay</a>
+              </div>
+            </div>
+            <div class="solution-visual">
+              <div class="solution-card-glass">
+                <div class="card-glow-bg"></div>
+                <div class="solution-illustration">
+                  <div class="mockup-header-row">
+                    <span class="mock-circle red"></span>
+                    <span class="mock-circle yellow"></span>
+                    <span class="mock-circle green"></span>
+                    <span class="mock-title">EduConnect • Đặt Lịch Học 1:1</span>
+                  </div>
+                  <div class="mockup-booking-flow">
+                    <div class="step-pill active">1. Chọn gia sư</div>
+                    <div class="step-line active"></div>
+                    <div class="step-pill active">2. Khóa 20 buổi</div>
+                    <div class="step-line active"></div>
+                    <div class="step-pill">3. Vào lớp WebRTC</div>
+                  </div>
+                  <div class="interactive-booking-card">
+                    <div class="tutor-brief">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Gia sư">
+                      <div>
+                        <h4>Lê Minh Châu</h4>
+                        <p>Thạc sĩ Sư phạm • 4 năm kinh nghiệm</p>
+                      </div>
+                    </div>
+                    <div class="slot-grid">
+                      <span class="slot taken">Thứ 2 (18h-19h30) • Đã kín</span>
+                      <span class="slot chosen">Thứ 4 (19h30-21h) • Bạn đã chọn</span>
+                      <span class="slot free">Thứ 6 (19h30-21h) • Còn trống</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content 2: Gia sư -->
+        <div class="tab-content" id="tab-tutor">
+          <div class="solution-grid">
+            <div class="solution-info">
+              <div class="badge-role badge-tutor">Dành cho Gia sư & Sinh viên KGU</div>
+              <h3 class="solution-heading">Gia tăng thu nhập bền vững, giảng dạy chuyên nghiệp</h3>
+              <ul class="solution-checklist">
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Tự chủ hoàn toàn thời gian giảng dạy:</strong>
+                    <p>Chỉ cần thiết lập khung giờ rảnh trong tuần, hệ thống sẽ tự động ghép nối học sinh phù hợp.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Thù lao minh bạch theo từng buổi học:</strong>
+                    <p>Theo dõi doanh thu, số buổi đã dạy và số tiền thù lao thực nhận tức thì trên bảng điều khiển.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Dễ dàng đăng khóa học & bài giảng:</strong>
+                    <p>Tự do thiết lập mức học phí theo chuyên môn và năng lực của bạn.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Không lo quỵt tiền học:</strong>
+                    <p>Học sinh thanh toán trước qua app, thù lao được đảm bảo giải ngân ngay khi hoàn tất buổi dạy.</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="solution-cta">
+                <a href="#contact" class="btn btn-primary">Đăng Ký Làm Gia Sư</a>
+              </div>
+            </div>
+            <div class="solution-visual">
+              <div class="solution-card-glass">
+                <div class="solution-illustration">
+                  <div class="mockup-header-row">
+                    <span class="mock-circle red"></span>
+                    <span class="mock-circle yellow"></span>
+                    <span class="mock-circle green"></span>
+                    <span class="mock-title">Bảng Thu Nhập Gia Sư • EduConnect</span>
+                  </div>
+                  <div class="earnings-widget">
+                    <div class="earnings-card">
+                      <span class="earn-title">Thu nhập tháng này</span>
+                      <h4 class="earn-amount">14.850.000 <small>VNĐ</small></h4>
+                      <span class="earn-badge">↗ +28% so với tháng trước</span>
+                    </div>
+                    <div class="classes-count">
+                      <div class="sub-stat">
+                        <strong>48</strong>
+                        <span>Buổi đã dạy</span>
+                      </div>
+                      <div class="sub-stat">
+                        <strong>12</strong>
+                        <span>Học viên thân thiết</span>
+                      </div>
+                      <div class="sub-stat">
+                        <strong>5.0</strong>
+                        <span>Điểm phản hồi</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content 3: Quản trị viên -->
+        <div class="tab-content" id="tab-admin">
+          <div class="solution-grid">
+            <div class="solution-info">
+              <div class="badge-role badge-admin">Dành cho Nhà trường & Quản trị</div>
+              <h3 class="solution-heading">Chuẩn hóa dữ liệu, quản lý và kiểm duyệt chặt chẽ</h3>
+              <ul class="solution-checklist">
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Phê duyệt gia sư qua mã mời (Invite Code):</strong>
+                    <p>Đảm bảo chỉ các bạn sinh viên, giáo viên đủ chuẩn kiến thức và đạo đức mới được mở lớp.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Kiểm soát dòng tiền & hóa đơn thông minh:</strong>
+                    <p>Hệ thống tự động đối soát giao dịch chuyển khoản, kích hoạt quyền vào lớp sau khi duyệt đơn.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <div>
+                    <strong>Trung tâm giải quyết khiếu nại:</strong>
+                    <p>Bảo đảm quyền lợi học viên nếu gia sư vắng mặt hoặc sự cố đường truyền.</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="solution-cta">
+                <a href="#contact" class="btn btn-secondary">Liên hệ Hợp Tác KGU</a>
+              </div>
+            </div>
+            <div class="solution-visual">
+              <div class="solution-card-glass">
+                <div class="solution-illustration">
+                  <div class="admin-approval-mockup">
+                    <div class="admin-pill-tag">Quản trị viên đang xử lý</div>
+                    <div class="admin-row ok">
+                      <span>✓ Duyệt gia sư KGU: Nguyễn Văn An</span>
+                      <small>Đã cấp mã mời</small>
+                    </div>
+                    <div class="admin-row ok">
+                      <span>✓ Khớp lệnh thanh toán: Đơn #EDU-8921</span>
+                      <small>Kích hoạt 20 buổi</small>
+                    </div>
+                    <div class="admin-row pending">
+                      <span>⏳ Khiếu nại phòng học #310: Đang hòa giải</span>
+                      <small>2 phút trước</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bento Grid Features (Chủ đề Animation Tương Tác) -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header text-center" data-reveal="fade-up">
+          <span class="sub-heading">Công Nghệ Tiên Phong</span>
+          <h2 class="section-title">Tính Năng Đột Phá Kiến Tạo Tương Lai</h2>
+          <p class="section-desc">Xây dựng trên nền tảng React Native, Supabase Realtime và WebRTC tối tân.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1: WebRTC Classroom (Lớn) -->
+          <div class="bento-card bento-col-2 spotlight-card" data-reveal="fade-up">
+            <div class="card-spotlight"></div>
+            <div class="bento-icon bg-gradient-blue">
+              <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="bento-title">Phòng Học Trực Tuyến WebRTC 1:1 Siêu Nét</h3>
+            <p class="bento-desc">Trải nghiệm âm thanh và video chuẩn HD không độ trễ. Tích hợp tính năng bật/tắt camera, mic, chia sẻ màn hình bài giảng và gửi ảnh bài tập ngay trong khi đàm thoại.</p>
+            <div class="webrtc-interactive-demo">
+              <div class="screen-demo-box">
+                <div class="screen-tutor-view">
+                  <div class="screen-tag">Camera Thầy An</div>
+                </div>
+                <div class="screen-student-view">
+                  <div class="screen-tag">Bạn (Học sinh)</div>
+                </div>
+                <div class="screen-doc-share">
+                  <div class="doc-header">📄 Bai_Tap_Toan_Chuyen_De_3.pdf</div>
+                  <div class="doc-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: AI Assistant -->
+          <div class="bento-card spotlight-card" data-reveal="fade-up" data-delay="100">
+            <div class="card-spotlight"></div>
+            <div class="bento-icon bg-gradient-purple">
+              <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="bento-title">Trợ Lý AI EduConnect 24/7</h3>
+            <p class="bento-desc">Gặp bài toán khó lúc nửa đêm? Hỏi ngay trợ lý AI được tinh chỉnh phương pháp giải bước-từng-bước trước khi đến giờ học với gia sư.</p>
+            <div class="ai-chat-preview-box">
+              <div class="ai-bubble user">Làm sao tính đạo hàm f(x) = x³ - 3x?</div>
+              <div class="ai-bubble bot">
+                <span class="ai-sparkle">✨</span>
+                f'(x) = 3x² - 3. Bạn cần tìm điểm cực trị hay khảo sát hàm số?
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Smart Calendar Locking -->
+          <div class="bento-card spotlight-card" data-reveal="fade-up" data-delay="200">
+            <div class="card-spotlight"></div>
+            <div class="bento-icon bg-gradient-emerald">
+              <svg viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="bento-title">Khóa Lịch Thông Minh</h3>
+            <p class="bento-desc">Gia sư thiết lập lịch rảnh. Khi học sinh đã thanh toán giữ chỗ, khung giờ tự động mờ đi tránh trùng lịch 100%.</p>
+            <div class="mini-calendar-lock">
+              <div class="cal-day active">T2 <span class="dot-lock red"></span></div>
+              <div class="cal-day active">T3 <span class="dot-lock green"></span></div>
+              <div class="cal-day">T4 <span class="dot-lock red"></span></div>
+              <div class="cal-day">T5 <span class="dot-lock green"></span></div>
+              <div class="cal-day">T6 <span class="dot-lock red"></span></div>
+            </div>
+          </div>
+
+          <!-- Card 4: TOTP & Security -->
+          <div class="bento-card spotlight-card" data-reveal="fade-up" data-delay="300">
+            <div class="card-spotlight"></div>
+            <div class="bento-icon bg-gradient-amber">
+              <svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <h3 class="bento-title">Bảo Mật 2 Lớp TOTP</h3>
+            <p class="bento-desc">Khôi phục mật khẩu an toàn với mã ứng dụng Google/Microsoft Authenticator, loại trừ rủi ro mất tài khoản.</p>
+            <div class="totp-code-display">
+              <span>8</span><span>4</span><span>1</span>
+              <span class="dash">-</span>
+              <span>2</span><span>0</span><span>9</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Push Notifications & Reminders -->
+          <div class="bento-card bento-col-2 spotlight-card" data-reveal="fade-up" data-delay="400">
+            <div class="card-spotlight"></div>
+            <div class="bento-icon bg-gradient-rose">
+              <svg viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            </div>
+            <h3 class="bento-title">Nhắc Lịch & Đồng Bộ Thời Gian Thực</h3>
+            <p class="bento-desc">Tự động gửi thông báo đẩy trước 15 phút vào học. Bật tính năng chạy nền Foreground Service đảm bảo không bỏ lỡ bài giảng.</p>
+            <div class="notification-preview-stack">
+              <div class="notif-bar">
+                <div class="notif-bar-icon">🔔</div>
+                <div class="notif-bar-text">
+                  <strong>Nhắc lịch học: Buổi 12 - Môn Toán 12</strong>
+                  <p>Lớp học sẽ bắt đầu trong 15 phút nữa. Nhấn để vào phòng!</p>
+                </div>
+                <span class="notif-time">Bây giờ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Tutors Showcase -->
+    <section class="tutors-section" id="tutors">
+      <div class="container">
+        <div class="section-header text-center" data-reveal="fade-up">
+          <span class="sub-heading">Đội Ngũ Chất Lượng</span>
+          <h2 class="section-title">Gia Sư Xuất Sắc Được Đánh Giá Cao</h2>
+          <p class="section-desc">Hồ sơ minh bạch, kinh nghiệm giảng dạy thực chiến và được kiểm duyệt khắt khe bởi ban điều hành KGU.</p>
+        </div>
+
+        <div class="tutors-grid">
+          <!-- Tutor 1 -->
+          <div class="tutor-card tilt-card" data-reveal="fade-up" data-delay="0">
+            <div class="tutor-header">
+              <div class="tutor-avatar-wrap">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces" alt="Gia sư">
+                <span class="tutor-status-badge">Đang rảnh</span>
+              </div>
+              <div class="tutor-meta">
+                <span class="tutor-subject badge-blue">Toán 12 • Ôn Thi THPT</span>
+                <h3 class="tutor-name">Nguyễn Văn An</h3>
+                <div class="tutor-stars">
+                  <span class="star-rating">★★★★★</span>
+                  <span class="rating-text">4.9 (128 nhận xét)</span>
+                </div>
+              </div>
+            </div>
+            <p class="tutor-bio">5 năm kinh nghiệm luyện thi đại học, cựu sinh viên xuất sắc KGU, chuyên bồi dưỡng học sinh mất gốc đạt điểm 8+.</p>
+            <div class="tutor-features-list">
+              <span>✓ Tỉ lệ đậu NV1: 96%</span>
+              <span>✓ Tặng giáo trình PDF độc quyền</span>
+            </div>
+            <div class="tutor-card-footer">
+              <div class="tutor-price">
+                <span class="price-val">120.000đ</span>
+                <span class="price-unit">/buổi</span>
+              </div>
+              <a href="#calculator" class="btn btn-primary btn-sm">Đặt Lịch Ngay</a>
+            </div>
+          </div>
+
+          <!-- Tutor 2 -->
+          <div class="tutor-card tilt-card" data-reveal="fade-up" data-delay="100">
+            <div class="tutor-header">
+              <div class="tutor-avatar-wrap">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces" alt="Gia sư">
+                <span class="tutor-status-badge">Đang rảnh</span>
+              </div>
+              <div class="tutor-meta">
+                <span class="tutor-subject badge-red">Tiếng Anh 10 - 12 • IELTS</span>
+                <h3 class="tutor-name">Trần Thị Bích</h3>
+                <div class="tutor-stars">
+                  <span class="star-rating">★★★★★</span>
+                  <span class="rating-text">4.8 (95 nhận xét)</span>
+                </div>
+              </div>
+            </div>
+            <p class="tutor-bio">IELTS 7.5, 3 năm gia sư luyện đề và giao tiếp tự nhiên. Phương pháp học qua ngữ cảnh sinh động, dễ nhớ.</p>
+            <div class="tutor-features-list">
+              <span>✓ Chấm bài viết 1:1 hàng tuần</span>
+              <span>✓ Luyện phát âm chuẩn IPA</span>
+            </div>
+            <div class="tutor-card-footer">
+              <div class="tutor-price">
+                <span class="price-val">140.000đ</span>
+                <span class="price-unit">/buổi</span>
+              </div>
+              <a href="#calculator" class="btn btn-primary btn-sm">Đặt Lịch Ngay</a>
+            </div>
+          </div>
+
+          <!-- Tutor 3 -->
+          <div class="tutor-card tilt-card" data-reveal="fade-up" data-delay="200">
+            <div class="tutor-header">
+              <div class="tutor-avatar-wrap">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces" alt="Gia sư">
+                <span class="tutor-status-badge">Đang rảnh</span>
+              </div>
+              <div class="tutor-meta">
+                <span class="tutor-subject badge-cyan">Vật Lý 11 - 12</span>
+                <h3 class="tutor-name">Lê Minh Châu</h3>
+                <div class="tutor-stars">
+                  <span class="star-rating">★★★★★</span>
+                  <span class="rating-text">4.9 (76 nhận xét)</span>
+                </div>
+              </div>
+            </div>
+            <p class="tutor-bio">Thủ khoa đầu vào KGU môn Lý, giải thích bản chất hiện tượng trực quan, giải nhanh trắc nghiệm bằng máy tính Casio.</p>
+            <div class="tutor-features-list">
+              <span>✓ Bộ 500 bài trắc nghiệm điểm 9</span>
+              <span>✓ Hỗ trợ hỏi đáp 24/7</span>
+            </div>
+            <div class="tutor-card-footer">
+              <div class="tutor-price">
+                <span class="price-val">110.000đ</span>
+                <span class="price-unit">/buổi</span>
+              </div>
+              <a href="#calculator" class="btn btn-primary btn-sm">Đặt Lịch Ngay</a>
+            </div>
+          </div>
+
+          <!-- Tutor 4 -->
+          <div class="tutor-card tilt-card" data-reveal="fade-up" data-delay="300">
+            <div class="tutor-header">
+              <div class="tutor-avatar-wrap">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces" alt="Gia sư">
+                <span class="tutor-status-badge">Đang rảnh</span>
+              </div>
+              <div class="tutor-meta">
+                <span class="tutor-subject badge-emerald">Hóa Học 12 • Hữu Cơ</span>
+                <h3 class="tutor-name">Phạm Quốc Dũng</h3>
+                <div class="tutor-stars">
+                  <span class="star-rating">★★★★★</span>
+                  <span class="rating-text">5.0 (210 nhận xét)</span>
+                </div>
+              </div>
+            </div>
+            <p class="tutor-bio">6 năm kinh nghiệm, phương pháp sơ đồ tư duy phản ứng hóa học, cam kết tăng từ 1 đến 2 điểm sau 1 khóa học.</p>
+            <div class="tutor-features-list">
+              <span>✓ Đạt 9.75 môn Hóa THPT</span>
+              <span>✓ Sơ đồ hóa hữu cơ chuẩn</span>
+            </div>
+            <div class="tutor-card-footer">
+              <div class="tutor-price">
+                <span class="price-val">130.000đ</span>
+                <span class="price-unit">/buổi</span>
+              </div>
+              <a href="#calculator" class="btn btn-primary btn-sm">Đặt Lịch Ngay</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Calculator & Pricing (Mô Hình Kinh Doanh) -->
+    <section class="calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-header text-center" data-reveal="fade-up">
+          <span class="sub-heading">Minh Bạch & Tiết Kiệm</span>
+          <h2 class="section-title">Bảng Dự Toán Học Phí & Thù Lao</h2>
+          <p class="section-desc">Học sinh linh hoạt lựa chọn gói học tiết kiệm. Gia sư ước tính thu nhập hấp dẫn theo giờ dạy.</p>
+        </div>
+
+        <div class="calc-wrapper" data-reveal="fade-up" data-delay="100">
+          <div class="calc-switcher">
+            <button class="calc-btn active" id="calc-student-btn">Dành Cho Học Sinh (Gói Học)</button>
+            <button class="calc-btn" id="calc-tutor-btn">Dành Cho Gia Sư (Ước Tính Thu Nhập)</button>
+          </div>
+
+          <!-- Student Calculator Panel -->
+          <div class="calc-panel active" id="calc-panel-student">
+            <div class="calc-grid">
+              <div class="calc-controls">
+                <div class="control-group">
+                  <label class="control-label">Chọn môn học cần gia sư kèm:</label>
+                  <div class="subject-select-pills" id="subject-selector">
+                    <button class="pill active" data-price="120000">Toán 12</button>
+                    <button class="pill" data-price="140000">Tiếng Anh 10-12</button>
+                    <button class="pill" data-price="110000">Vật Lý 11-12</button>
+                    <button class="pill" data-price="130000">Hóa Học 12</button>
+                    <button class="pill" data-price="100000">Ngữ Văn</button>
+                    <button class="pill" data-price="125000">Tin Học / Lập Trình</button>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label">Chọn số lượng buổi học (Gói tiêu chuẩn):</label>
+                  <div class="packages-selector" id="package-selector">
+                    <div class="pkg-card" data-sessions="10" data-discount="0">
+                      <span class="pkg-tag">Cơ bản</span>
+                      <strong class="pkg-name">10 Buổi</strong>
+                      <span class="pkg-sub">Lấy lại căn bản</span>
+                      <span class="pkg-discount-none">Giá gốc</span>
+                    </div>
+
+                    <div class="pkg-card popular active" data-sessions="20" data-discount="0.10">
+                      <span class="pkg-badge-popular">Phổ biến nhất</span>
+                      <span class="pkg-tag">Tiến bộ</span>
+                      <strong class="pkg-name">20 Buổi</strong>
+                      <span class="pkg-sub">Bứt phá điểm 8+</span>
+                      <span class="pkg-discount">Giảm 10%</span>
+                    </div>
+
+                    <div class="pkg-card" data-sessions="30" data-discount="0.15">
+                      <span class="pkg-tag">Chuyên sâu</span>
+                      <strong class="pkg-name">30 Buổi</strong>
+                      <span class="pkg-sub">Ôn thi Đại học toàn diện</span>
+                      <span class="pkg-discount">Giảm 15%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Price Summary Card -->
+              <div class="calc-summary-card">
+                <div class="summary-top">
+                  <h3>Tổng Học Phí Dự Tính</h3>
+                  <div class="discount-pill-glow" id="calc-discount-tag">Đã tiết kiệm 10%</div>
+                </div>
+
+                <div class="price-display">
+                  <span class="price-large" id="calc-total-price">2.160.000</span>
+                  <span class="price-currency">VNĐ</span>
+                </div>
+                <div class="price-per-session">
+                  Tương đương <strong id="calc-unit-price">108.000đ</strong> / buổi (90 phút)
+                </div>
+
+                <div class="summary-benefits">
+                  <div class="benefit-item">✓ Phòng học WebRTC 1:1 không giới hạn thời gian</div>
+                  <div class="benefit-item">✓ Trợ lý AI giải bài 24/7 miễn phí trọn đời</div>
+                  <div class="benefit-item">✓ Được đổi gia sư miễn phí nếu không hợp phương pháp</div>
+                  <div class="benefit-item">✓ Cam kết hoàn tiền buổi học nếu gặp sự cố</div>
+                </div>
+
+                <button class="btn btn-primary btn-block btn-lg" id="btn-order-package">
+                  Đăng Ký Gói Học Này
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tutor Earning Calculator Panel -->
+          <div class="calc-panel" id="calc-panel-tutor">
+            <div class="calc-grid">
+              <div class="calc-controls">
+                <div class="control-group">
+                  <label class="control-label">Số giờ bạn có thể dạy mỗi tuần:</label>
+                  <div class="slider-wrapper">
+                    <input type="range" min="4" max="30" value="12" step="2" class="range-slider" id="tutor-hours-slider">
+                    <div class="slider-val-box">
+                      <span id="slider-hours-val">12</span> giờ / tuần
+                    </div>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label">Mức thù lao mong muốn trên mỗi buổi (90 phút):</label>
+                  <div class="subject-select-pills" id="tutor-rate-selector">
+                    <button class="pill active" data-rate="120000">120.000đ / buổi</button>
+                    <button class="pill" data-rate="140000">140.000đ / buổi</button>
+                    <button class="pill" data-rate="180000">180.000đ / buổi (Nâng cao)</button>
+                    <button class="pill" data-rate="220000">220.000đ / buổi (Luyện thi)</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tutor Earning Summary Card -->
+              <div class="calc-summary-card bg-tutor-glow">
+                <div class="summary-top">
+                  <h3>Thu Nhập Ước Tính Của Bạn</h3>
+                  <div class="discount-pill-glow bg-emerald">Thanh toán theo tuần</div>
+                </div>
+
+                <div class="price-display text-emerald">
+                  <span class="price-large" id="tutor-monthly-earn">7.680.000</span>
+                  <span class="price-currency">VNĐ/tháng</span>
+                </div>
+                <div class="price-per-session">
+                  Khoảng <strong id="tutor-weekly-earn">1.920.000đ</strong> / tuần (dạy bán thời gian)
+                </div>
+
+                <div class="summary-benefits">
+                  <div class="benefit-item">✓ Tự do chọn lịch rảnh, không bị ép KPI</div>
+                  <div class="benefit-item">✓ Không phải tìm kiếm hay thương lượng với phụ huynh</div>
+                  <div class="benefit-item">✓ Nhận tiền thẳng vào tài khoản ngân hàng</div>
+                  <div class="benefit-item">✓ Cấp chứng nhận giảng dạy xuất sắc từ KGU</div>
+                </div>
+
+                <a href="#contact" class="btn btn-primary btn-block btn-lg">
+                  Ứng Tuyển Gia Sư KGU Ngay
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="reviews">
+      <div class="container">
+        <div class="section-header text-center" data-reveal="fade-up">
+          <span class="sub-heading">Niềm Tin Từ Người Dùng</span>
+          <h2 class="section-title">Câu Chuyện Thành Công Cùng EduConnect</h2>
+          <p class="section-desc">Lắng nghe trải nghiệm chân thực từ học sinh, phụ huynh và gia sư sau khi sử dụng nền tảng.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card" data-reveal="fade-up" data-delay="0">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Em từng rất sợ môn Lý 12 vì học trên lớp không theo kịp. Nhờ thầy Châu trên EduConnect kèm 1:1 qua WebRTC, có bảng trắng vẽ sơ đồ mạch điện rất dễ hiểu. Kỳ thi thử vừa rồi em tăng từ 5.2 lên 8.4 điểm!"</p>
+            <div class="reviewer-meta">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Lê Hoàng Nam">
+              <div>
+                <strong>Lê Hoàng Nam</strong>
+                <span>Học sinh lớp 12 • THPT Nguyễn Trung Trực</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-reveal="fade-up" data-delay="100">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Tôi đi làm bận rộn, không có thời gian đưa đón con học thêm xa. Ứng dụng EduConnect cho phép tôi kiểm tra lịch học, xem đánh giá từng buổi và thanh toán rõ ràng. Rất an tâm về chất lượng sinh viên trường KGU."</p>
+            <div class="reviewer-meta">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Chị Thu Hương">
+              <div>
+                <strong>Chị Phạm Thu Hương</strong>
+                <span>Phụ huynh học sinh lớp 10 • Rạch Giá</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-reveal="fade-up" data-delay="200">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Là sinh viên ngành CNTT KGU, trước đây mình rất khó tìm học sinh dạy thêm. Với EduConnect, mình chỉ cần đăng ký lịch rảnh, học sinh tự đặt lịch. Thu nhập mỗi tháng hơn 8 triệu giúp mình tự trang trải sinh hoạt phí."</p>
+            <div class="reviewer-meta">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="Nguyễn Văn An">
+              <div>
+                <strong>Nguyễn Văn An</strong>
+                <span>Gia sư môn Toán • Sinh viên năm 3 KGU</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="section-header text-center" data-reveal="fade-up">
+          <span class="sub-heading">Giải Đáp Mọi Thắc Mắc</span>
+          <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+          <p class="section-desc">Mọi điều bạn cần biết trước khi bắt đầu học hoặc giảng dạy trên EduConnect.</p>
+        </div>
+
+        <div class="accordion-wrapper" data-reveal="fade-up">
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>1. Phòng học trực tuyến hoạt động như thế nào, có cần cài thêm Zoom hay Meet không?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Hoàn toàn không cần cài đặt thêm bất kỳ phần mềm thứ ba nào! EduConnect tích hợp sẵn công nghệ WebRTC ngay trong ứng dụng di động. Bạn chỉ cần nhấn nút "Vào phòng học" là có thể đàm thoại video 1:1, chia sẻ màn hình và gửi tài liệu trực tiếp.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>2. Nếu gia sư bận đột xuất hoặc buổi học bị gián đoạn đường truyền thì sao?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Hệ thống có tính năng "Khiếu nại buổi học". Quản trị viên EduConnect sẽ xác minh nhật ký kết nối; nếu sự cố từ phía gia sư hoặc đường truyền, bạn sẽ được tự động bù lại buổi học đó vào một ngày khác mà không mất thêm chi phí.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>3. Sinh viên muốn đăng ký làm gia sư thì cần những điều kiện gì?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Gia sư cần nộp bảng điểm đại học (GPA từ khá/giỏi trở lên), CMND/CCCD và tham gia bài kiểm tra phương pháp sư phạm ngắn gọn. Sau khi được Quản trị viên duyệt, bạn sẽ nhận được một Mã Mời (Invite Code) để kích hoạt tài khoản gia sư.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>4. Quy trình thanh toán và đặt cọc an toàn ra sao?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Học sinh thanh toán tiền học qua mã QR ngân hàng trong app. Số tiền này sẽ được giữ an toàn tại hệ thống EduConnect và chỉ thanh toán cho gia sư sau khi từng buổi học được hoàn thành đúng quy chuẩn.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              <span>5. Trợ lý AI trên app có tính phí thêm không?</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Tính năng Trợ Lý AI EduConnect được cung cấp hoàn toàn MIỄN PHÍ cho tất cả học sinh và gia sư đã đăng ký tài khoản, phục vụ mục đích giải đáp kiến thức và phương pháp giải bài 24/7.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download & CTA Section -->
+    <section class="download-section" id="download">
+      <div class="container">
+        <div class="download-card" data-reveal="zoom-in">
+          <div class="download-card-glow"></div>
+          <div class="download-content">
+            <span class="download-pill">Sẵn sàng học tập ngay</span>
+            <h2 class="download-title">Trải Nghiệm Ứng Dụng EduConnect Hôm Nay</h2>
+            <p class="download-desc">
+              Tải phiên bản Android APK hoặc kết nối qua mã nguồn Expo SDK để bắt đầu kết nối với những gia sư tài năng nhất ngay bây giờ.
+            </p>
+
+            <div class="download-badges-row">
+              <a href="#" class="store-badge-btn" id="btn-download-apk">
+                <svg viewBox="0 0 24 24"><path d="M3 13.5l8.5 8.5 8.5-8.5M12 3v19"/></svg>
+                <div class="store-badge-text">
+                  <small>Tải trực tiếp</small>
+                  <strong>File APK Android</strong>
+                </div>
+              </a>
+
+              <a href="https://expo.dev" target="_blank" class="store-badge-btn secondary">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <div class="store-badge-text">
+                  <small>Mở trên</small>
+                  <strong>Expo Go SDK 57</strong>
+                </div>
+              </a>
+            </div>
+
+            <div class="app-info-tags">
+              <span>📱 Package: com.vanhoa282.eduteach</span>
+              <span>⚡ Phiên bản: 1.0.0</span>
+              <span>🔒 KGU Tech Award 2026-2027</span>
+            </div>
+          </div>
+
+          <div class="download-qr-visual">
+            <div class="qr-box">
+              <div class="qr-code-mock">
+                <!-- SVG QR Code Representation -->
+                <svg class="qr-svg" viewBox="0 0 100 100">
+                  <rect x="0" y="0" width="30" height="30" fill="#3B82F6"/>
+                  <rect x="5" y="5" width="20" height="20" fill="#0B1735"/>
+                  <rect x="10" y="10" width="10" height="10" fill="#3B82F6"/>
+
+                  <rect x="70" y="0" width="30" height="30" fill="#3B82F6"/>
+                  <rect x="75" y="5" width="20" height="20" fill="#0B1735"/>
+                  <rect x="80" y="10" width="10" height="10" fill="#3B82F6"/>
+
+                  <rect x="0" y="70" width="30" height="30" fill="#3B82F6"/>
+                  <rect x="5" y="75" width="20" height="20" fill="#0B1735"/>
+                  <rect x="10" y="80" width="10" height="10" fill="#3B82F6"/>
+
+                  <circle cx="50" cy="50" r="12" fill="#8B5CF6"/>
+                  <rect x="40" y="15" width="8" height="18" fill="#60A5FA"/>
+                  <rect x="55" y="15" width="8" height="8" fill="#60A5FA"/>
+                  <rect x="40" y="70" width="12" height="12" fill="#60A5FA"/>
+                  <rect x="65" y="60" width="15" height="15" fill="#60A5FA"/>
+                </svg>
+              </div>
+              <p class="qr-label">Quét mã QR để mở nhanh trên điện thoại</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Consultation Form (Kinh Doanh) -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info" data-reveal="fade-right">
+          <span class="sub-heading">Kết Nối Với Chúng Tôi</span>
+          <h2 class="section-title">Nhận Tư Vấn Lộ Trình Học & Đăng Ký Gia Sư</h2>
+          <p class="section-desc">Để lại thông tin, đội ngũ điều phối viên EduConnect sẽ liên hệ lại với bạn trong vòng 15 phút.</p>
+
+          <div class="contact-cards-stack">
+            <div class="contact-info-card">
+              <div class="c-icon bg-blue">📞</div>
+              <div>
+                <strong>Hotline & Zalo Hỗ Trợ:</strong>
+                <a href="tel:0325272884" class="c-link">0325 272 884</a>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="c-icon bg-purple">✉️</div>
+              <div>
+                <strong>Email Liên Hệ:</strong>
+                <a href="mailto:eduteach@gmail.com" class="c-link">eduteach@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="c-icon bg-emerald">🏫</div>
+              <div>
+                <strong>Đơn vị chủ quản dự án:</strong>
+                <p>Khoa Công nghệ Thông tin — Trường Đại học Kiên Giang (KGU)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper" data-reveal="fade-left">
+          <form class="contact-form" id="lead-form">
+            <h3 class="form-title">Đăng Ký Nhận Tư Vấn Miễn Phí</h3>
+            <div class="form-group">
+              <label for="form-name">Họ và tên của bạn:</label>
+              <input type="text" id="form-name" required placeholder="Ví dụ: Nguyễn Văn Hòa">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="form-phone">Số điện thoại (Zalo):</label>
+                <input type="tel" id="form-phone" required placeholder="Ví dụ: 0325272884">
+              </div>
+
+              <div class="form-group">
+                <label for="form-role">Bạn muốn đăng ký:</label>
+                <select id="form-role">
+                  <option value="student">Tìm Gia Sư (Học sinh/Phụ huynh)</option>
+                  <option value="tutor">Ứng Tuyển Gia Sư (Sinh viên/Giáo viên)</option>
+                  <option value="partner">Hợp tác đào tạo KGU</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="form-subject">Môn học quan tâm / Lĩnh vực giảng dạy:</label>
+              <input type="text" id="form-subject" placeholder="Ví dụ: Toán 12, Tiếng Anh giao tiếp...">
+            </div>
+
+            <div class="form-group">
+              <label for="form-note">Ghi chú thêm (khung giờ rảnh, mục tiêu điểm số):</label>
+              <textarea id="form-note" rows="3" placeholder="Nhập yêu cầu cụ thể của bạn..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-submit-lead">
+              <span>Gửi Đăng Ký Ngay</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col-main">
+        <a href="#" class="brand-logo">
+          <div class="logo-box">
+            <img src="assets/icon.png" alt="EduConnect Logo" class="brand-icon">
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Edu<span class="accent-text">Connect</span></span>
+          </div>
+        </a>
+        <p class="footer-desc">
+          EduConnect (EduTeach Platform) — Nền tảng kết nối học sinh và gia sư hàng đầu, ứng dụng công nghệ phòng học trực tuyến WebRTC 1:1 và Trí tuệ Nhân tạo thông minh.
+        </p>
+        <p class="footer-award">
+          🏆 Sản phẩm dự thi <strong>Cuộc thi Sáng tạo kỹ thuật sinh viên KGU lần thứ I</strong>, năm học 2026 – 2027.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Khám Phá</h4>
+        <ul class="footer-links">
+          <li><a href="#features">Phòng học WebRTC</a></li>
+          <li><a href="#solutions">Mô hình 3 bên</a></li>
+          <li><a href="#tutors">Tìm gia sư Toán, Lý, Hóa</a></li>
+          <li><a href="#calculator">Bảng giá gói học</a></li>
+          <li><a href="#download">Tải bản Android</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Dành Cho Gia Sư</h4>
+        <ul class="footer-links">
+          <li><a href="#solutions">Chính sách thù lao</a></li>
+          <li><a href="#contact">Quy trình cấp mã mời</a></li>
+          <li><a href="#calculator">Dự toán thu nhập tháng</a></li>
+          <li><a href="#faq">Quy chế phòng học</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Liên Hệ</h4>
+        <p class="footer-contact-item">📞 <strong>Hotline/Zalo:</strong> 0325 272 884</p>
+        <p class="footer-contact-item">✉️ <strong>Email:</strong> eduteach@gmail.com</p>
+        <p class="footer-contact-item">📍 <strong>Địa chỉ:</strong> Trường ĐH Kiên Giang (KGU)</p>
+        <div class="kgu-badge-box">
+          <span>KGU Tech Innovation 2026-2027</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 EduConnect (EduTeach). Tất cả quyền được bảo lưu. Dự án sáng tạo sinh viên KGU.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Chính sách bảo mật TOTP</a>
+          <a href="#">Xử lý khiếu nại</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Interactive AI Consultation Widget -->
+  <div class="ai-floating-widget" id="ai-widget">
+    <div class="ai-widget-panel" id="ai-panel">
+      <div class="ai-panel-header">
+        <div class="ai-panel-title">
+          <span class="ai-bot-avatar">🤖</span>
+          <div>
+            <strong>Trợ Lý AI EduConnect</strong>
+            <small>● Sẵn sàng tư vấn</small>
+          </div>
+        </div>
+        <button class="ai-panel-close" id="ai-close">&times;</button>
+      </div>
+
+      <div class="ai-panel-chat" id="ai-chat-messages">
+        <div class="ai-msg bot">
+          Chào bạn! Tôi là trợ lý AI của EduConnect. Bạn đang tìm gia sư môn nào hay muốn tìm hiểu cách đăng ký làm gia sư?
+        </div>
+      </div>
+
+      <div class="ai-quick-replies" id="ai-chips">
+        <button class="chip" data-query="Tìm gia sư môn Toán 12">Tìm gia sư Toán</button>
+        <button class="chip" data-query="Làm sao để đăng ký làm gia sư?">Làm gia sư KGU</button>
+        <button class="chip" data-query="Học trực tuyến WebRTC là gì?">Phòng WebRTC</button>
+      </div>
+
+      <div class="ai-panel-input">
+        <input type="text" id="ai-text-input" placeholder="Hỏi bất kỳ điều gì về EduConnect...">
+        <button id="ai-send-btn" aria-label="Gửi">➤</button>
+      </div>
+    </div>
+
+    <!-- Floating Toggle Button -->
+    <button class="ai-floating-btn" id="ai-toggle-btn" title="Chat với Trợ Lý AI EduConnect">
+      <div class="ai-btn-pulse"></div>
+      <span class="ai-btn-icon">✨</span>
+      <span class="ai-btn-label">Tư vấn AI</span>
+    </button>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
